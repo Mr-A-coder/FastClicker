@@ -2,6 +2,8 @@ import pygame
 import time
 from random import randint
 
+from label import Label
+
 pygame.init()
 
 # Create a window
@@ -14,32 +16,8 @@ clock = pygame.time.Clock()
 start_time = time.time()
 current_time = start_time
 
-#Area Class
-class Area():
-    def __init__(self, x=0, y=0, width=10, height=10, color=None):
-        self.rectangle = pygame.Rect (x, y, width, height)
-        self.fill_color = color
 
-    def setColor(self, new_color):
-        self.fill_color = new_color
 
-    def fillColor(self): #Draw the rectangle on the main window
-        pygame.draw.rect(main_window, self.fill_color, self.rectangle)
-
-    def setOutline(self, frame_color, thickness): #Set the outline color
-        pygame.draw.rect(main_window, frame_color, self.rectangle, thickness)
-
-    def collidepoint(self, x, y):
-        return self.rectangle.collidepoint(x, y)
-
-# Label Class
-class Label(Area):
-    def setText(self, texts, fsize=12, textColor=(0,0,0)):
-        self.image = pygame.font.SysFont("Verdana", fsize).render(texts, True, textColor)
-
-    def draw(self, shift_x=0, shift_y=0):
-        self.fillColor()
-        main_window.blit(self.image, (self.rectangle.x + shift_x, self.rectangle.y + shift_y))
 
 num_cards = 4
 x = 70
