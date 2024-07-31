@@ -135,6 +135,7 @@ while True:
         time_up.draw(110, 110)
         break
 
+
     pygame.display.update()
     clock.tick(40)
 pygame.display.update()
